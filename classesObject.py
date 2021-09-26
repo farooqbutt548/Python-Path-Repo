@@ -46,9 +46,8 @@ print(Laptop.count_instance)
 
 
 
-
-
 '''class University:
+    total_marks = 1100
 
     def __init__(self, department, subject, shift,cgpa ):
         self.department = department
@@ -58,4 +57,37 @@ print(Laptop.count_instance)
         self.fee = 40000
 
 farooq = University( input('enter department : '), input('enter subject : '), input('enter Shift : '), input('enter cgpa : ' ))
-print(f'Your, department : {farooq.department} , subject : {farooq.subject} , shift : {farooq.shift} , cgpa : {farooq.cgpa} , fee : {farooq.fee}')'''
+print(f'Your, department : {farooq.department} , subject : {farooq.subject} , shift : {farooq.shift} , cgpa : {farooq.cgpa} , fee : {farooq.fee}')
+print(farooq.total_marks)       # class's variable/attribute, object derieved from class (Inheretance)
+print(University.total_marks)       # class's variable/attribute'''
+
+
+
+'''class University:
+    total_marks = 1100
+
+    def __init__(self, department, subject, shift,cgpa ):
+        self.department = department
+        self.subject = subject
+        self.shift = shift
+        self.cgpa = cgpa
+        self.fee = 40000
+
+    @classmethod
+    def string_argu(cls, string):
+        department, subject, shift, cgpa = string.split(',')
+        return cls(department, subject, shift, cgpa)
+
+    @staticmethod
+    def intro():
+        return f'Hi I am Farooq Butt'
+
+touseef = University.string_argu('ICT,BS-IT,Evening,3.57')      # object arguments paased via a string with class method
+
+print(f'Hi Dear your Department : {touseef.department} .')
+print(f'Hi Dear your Subject : {touseef.subject} .')
+print(f'Hi Dear your Shift : {touseef.shift} .')
+print(f'Hi Dear your CGPA : {touseef.cgpa} .')
+
+print(University.intro())       # this is static method (instance/class independent)
+print(touseef.intro())       # this is static method (instance/class independent)'''
