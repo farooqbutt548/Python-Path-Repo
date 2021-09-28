@@ -110,28 +110,83 @@ print(touseef.intro())       # this is static method (instance/class independent
 
 
 
-'''class Phone:
+class Phone:
     def __init__(self, name, model, price):
         self.name = name
         self._model = model
         self.__price = max(price, 0)    # if price negative it will assume zero 
-
+    def comp_name(self):
+        return f'complete name is "{self.name} {self._model}" '
 ph1 = Phone('techno', 'spark_5', 18000)
-print(ph1.name)
-print(ph1._model)
+# print(ph1.name)
+# print(ph1._model)
 # print(ph1.__price)  # mangling name error 
-print(ph1._Phone__price)        # in case of mangling we concatinate _ClassName then mangling attribute
+# print(ph1._Phone__price)        # in case of mangling we concatinate _ClassName then mangling attribute
 ph1._Phone__price =-18500
-print(ph1._Phone__price)    # in mangling Python changes it's name 
+# print(ph1._Phone__price)    # in mangling Python changes it's name 
+# print(ph1.comp_name())         # method shown
 
+                                    # multilevel inheritance
 
-class latest_phone(Phone):              # inheritance
+'''class Latest_phone(Phone):              
     def __init__(self, name, model, price, pixel, size):
         super().__init__(name, model, price)
         self.pixel = pixel
         self.size = size
 
-ph2 = latest_phone('infinix', 'camon 11', 20000, '8 mpx', '8 inch' )
+class Super_Phone(Latest_phone):            # multilevel inheritance
+    def __init__(self, name, model, price, pixel, size, battery, os):
+        super().__init__(name, model, price, pixel, size)
+        self.battery = battery
+        self.os = os
+
+                # method over riding
+
+    def comp_name(self):        # this method will be overridden previous
+        return f'complete name is "{self.name} {self._model}, {self._Phone__price} " '
+
+ph2 = Latest_phone('infinix', 'camon 11', 20000, '8 mpx', '8 inch' )
+ph3 = Super_Phone('oppo', 'op3', 32000, '16 px', '7.5 inch', '5000 mh', 'androin')
 
 print(f"the old phone's properties is {ph1.name}, {ph1._model}, {ph1._Phone__price} ")
-print(f"the latest phone's properties is Name: {ph2.name},Model: {ph2._model},Price: {ph2._Phone__price}, Pixel: {ph2.pixel}, Size: {ph2.size} ")'''
+print(f"the latest phone's properties is Name: {ph2.name},Model: {ph2._model},Price: {ph2._Phone__price}, Pixel: {ph2.pixel}, Size: {ph2.size} ")
+print(f'superphone OS : {ph3.os}, Battery : {ph3.battery} ')
+
+# print(help(Super_Phone))          # method resolution order
+# print(help(Latest_phone))         # method resolution order
+# print(ph3.comp_name())      # this method will be overridden previous
+
+            # isinstance and issubclass 
+
+# print(isinstance(ph1, Phone))           # Phone has 'ph1, ph2, ph3' 
+# print(isinstance(ph1, Latest_phone))    # Latest_Phone has 'ph1, ph2 '
+# print(isinstance(ph1, Super_Phone))     # Super_Phone has 'ph1 '
+
+# print(issubclass(Super_Phone, Phone))
+# print(issubclass(Super_Phone, Latest_phone))    # all child classes is in its all parent classes
+# print(issubclass(Phone, Super_Phone))           # Parant class is not in other child classes'''
+
+                        # multiple inheritance
+
+'''class Set_A():
+    def method_A1(self):
+        return f'this is set A 1st method'
+    def common_method(self):
+        return f'this is set A method'
+
+class Set_B():
+    def method_B1(self):
+        return f'this is set B 1st method '
+    def common_method(self):
+        return f'this is set B method '
+        
+class Set_U(Set_B, Set_A):
+    pass
+
+obj_U = Set_U()
+
+print(obj_U.method_A1())
+print(obj_U.method_B1())
+print(obj_U.common_method())    # in passing parameters the class pass first has more periority
+
+# print(help(Set_U))'''
