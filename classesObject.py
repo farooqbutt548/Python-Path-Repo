@@ -110,7 +110,7 @@ print(touseef.intro())       # this is static method (instance/class independent
 
 
 
-class Phone:
+'''class Phone:
     def __init__(self, name, model, price):
         self.name = name
         self._model = model
@@ -128,7 +128,7 @@ ph1._Phone__price =-18500
 
                                     # multilevel inheritance
 
-'''class Latest_phone(Phone):              
+class Latest_phone(Phone):              
     def __init__(self, name, model, price, pixel, size):
         super().__init__(name, model, price)
         self.pixel = pixel
@@ -190,3 +190,31 @@ print(obj_U.method_B1())
 print(obj_U.common_method())    # in passing parameters the class pass first has more periority
 
 # print(help(Set_U))'''
+
+
+                                # dunder/special/megic method
+
+'''class City:
+    def __init__(self, country, capital, area):
+        self.country = country
+        self.capital = capital
+        self.area     = area
+
+    def __str__(self) :     # for print object properties
+        return f'the city has province "{self.country}", capital of "{self.capital}" and area is "{self.area} km^2" '
+    def __len__(self):      # for length of specific attributes
+        return len(self.capital)
+
+lahore = City('Pakistan', 'Punjab', 1772)
+peshawar = City('Pakistan', 'KPK', 215)
+quetta  = City('Pakistan', 'Balochistan', 178)
+karachi = City('Pakistan', 'Sindh', 3780)
+
+# print(lahore)
+# print(len(lahore))
+# print(peshawar)
+# print(len(peshawar))
+# print(quetta)
+# print(len(quetta))
+# print(karachi)
+# print(len(karachi))'''
