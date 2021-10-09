@@ -116,3 +116,60 @@ except (IOError,OSError) as obj:
 else:
    print ("no error found in creating the writablefile")
    new_file.close()'''
+
+
+
+
+
+
+#    Exception another way
+
+'''class Animal:
+    def __init__(self, name, color):
+        self.name = name
+        self.color =color
+        
+    def sound(self):
+        raise NotImplementedError('you did create a sound method.')
+
+
+class Cat(Animal):
+    def __init__(self, name, color, height):
+        super().__init__(name, color)
+        self.height = height
+
+    def sound(self):
+        return f'the sound of cat is "maow maow"'
+
+class Dog(Animal):
+    def __init__(self, name, color, speed, breed):
+        super().__init__(name, color)
+        self.speed = speed
+        self.breed = breed
+    
+
+cat1 = Cat('roman Cat', 'white', '10 inch')
+dog1 = Dog('labrador', 'yellowish', '160 km/h', 'labry')
+
+
+# print(cat1.sound())
+print(dog1.sound())     # it will create notimplimented error until we did't make sound method'''
+
+
+
+
+'''while True:
+    try:
+        age = int(input('enter your age : '))
+    except (NameError, ValueError):
+        print('you entered type interger')
+    except:
+        print('unexcepted error')
+    else:
+        print(f'user input : {age}')
+        break
+
+    finally:
+        print('rest of code')'''
+        
+print('rest of code too')
