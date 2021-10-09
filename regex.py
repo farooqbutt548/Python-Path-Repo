@@ -18,6 +18,8 @@ The Python module re provides full support for Perl-like regular expressions in 
 # patt = re.compile(r'\bexpre')                  # \b..... start a word
 # patt = re.compile(r'thon\b')                  # .....\b end a word  
 patt = re.compile(r'\d{4}-\d{7}')                  # \d{n-digit} sign \d{n-digit}------its for numbers not char
+
+
 matches = patt.finditer(my_str)
 for match in matches:
     print(match)
