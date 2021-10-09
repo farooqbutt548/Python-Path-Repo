@@ -171,3 +171,5 @@ print(dog1.sound())     # it will create notimplimented error until we did't mak
 
     finally:
         print('rest of code')'''
+        
+print('rest of code too')
